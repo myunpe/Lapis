@@ -1,19 +1,27 @@
-{% if arena_list %}
-    <ul>
-        {% for arena in arena_list %}
-            <li>{{ arena.id }}
-                {{ arena.image_path }}
+{% extends "pri_arena/base.html" %}
 
-                <div>
-                    {% for tag in arena.tags.all %}
-                        {{ tag.name }}
-                    {% endfor %}
-                </div>
+{% block title %} トップページ {% endblock title %}
 
-                {{ arena.updated_at }}
-            </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+{% block content %}
+    <h4 class="mt-4 border-bottom">アリーナ編成</h4>
+    {% if arena_list %}
+        <ul class="list-group">
+            {% for arena in arena_list %}
+                <li class="list-group-item">{{ arena.id }}
+                    {{ arena.image_path }}
+
+                    <div class="">
+                        {% for tag in arena.tags.all %}
+                            {{ tag.name }}
+                        {% endfor %}
+                    </div>
+
+                    {{ arena.updated_at }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+
+{% endblock content %}
