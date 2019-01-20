@@ -1,0 +1,19 @@
+{% if arena_list %}
+    <ul>
+        {% for arena in arena_list %}
+            <li>{{ arena.id }}
+                {{ arena.image_path }}
+
+                <div>
+                    {% for tag in arena.tags.all %}
+                        {{ tag.name }}
+                    {% endfor %}
+                </div>
+
+                {{ arena.updated_at }}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

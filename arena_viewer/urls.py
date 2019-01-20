@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.urls import include
 
 urlpatterns = [
+    url(r'^pri_arena/', include('pri_arena.urls')),
     url(r'^admin/', admin.site.urls),
 ]
