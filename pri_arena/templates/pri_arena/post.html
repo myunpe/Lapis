@@ -1,0 +1,14 @@
+{% extends "pri_arena/base.html" %}
+
+
+{% block content %}
+
+    <h3>編成投稿ページ</h3>
+    <form action="{% url 'post' %}" method="post">
+        {% csrf_token %}
+
+        
+        <input type="submit" value="Arena">
+    </form>
+
+{% endblock content %}

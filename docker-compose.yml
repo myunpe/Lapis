@@ -19,7 +19,15 @@ services:
       - .:/var/www/webapp
     ports:
       - "8000:8000"
-    depends_on:
+    depends_on:l
       - db
 
-      
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_PASSWORD=django
+    ports:
+      - 8080:80
+    links:
+      - db

@@ -10,6 +10,7 @@ class Tag(models.Model):
 
 # Create your models here.
 class Arena(models.Model):
+    name = models.CharField(max_length=30, null=True)
     image_path = models.CharField(max_length=100)
     tags = models.ManyToManyField(Tag)
     created_at = models.DateTimeField(auto_now_add=True)
